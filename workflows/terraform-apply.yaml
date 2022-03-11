@@ -1,0 +1,33 @@
+name: Terraform Apply
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: ${{secrets.AZ_SP_APP_ID}}
+      ARM_CLIENT_SECRET: ${{secrets.AZ_SP_PASS}}
+      ARM_SUBSCRIPTION_ID: ${{secrets.AZ_SUBS_ID}}
+      ARM_TENANT_ID: ${{secrets.AZ_TENANT_ID}}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        env:
+          TF_VAR_aks-vnet: ${{ secrets.AKS_VNET }}
+          TF_VAR_aks-vnet-subnet: ${{ secrets.AKS_VNET_SUBNET }}
+          TF_VAR_aks-vnet-resource-group: ${{ secrets.AKS_VNET_RG }}
+          TF_VAR_postgresql-admin-login: ${{ secrets.RF_EM_PROD_USER }}
+          TF_VAR_postgresql-admin-password: ${{ secrets.RF_EM_PROD_PASS }}
