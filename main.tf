@@ -53,6 +53,6 @@ resource "azurerm_postgresql_firewall_rule" "firewall_rule_aks" {
   name                = "firewall_rule_aks"
   resource_group_name = var.postgres-resource-group
   server_name         = azurerm_postgresql_server.postgresql-server.name
-  start_ip_address    = "10.244.0.0"
-  end_ip_address      = "10.244.0.255"
+  start_ip_address    = var.public_ip_aks
+  end_ip_address      = var.public_ip_aks
 }
