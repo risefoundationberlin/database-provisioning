@@ -24,7 +24,7 @@ variable "aks-vnet-resource-group" {
 variable "location" {
   type        = string
   description = "Azure region where the resource group will be created"
-  default     = "North Europe"
+  default     = "Germany West Central"
 }
 
 variable "postgres-resource-group" {

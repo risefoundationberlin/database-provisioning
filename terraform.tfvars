@@ -1,7 +1,7 @@
 ####################
 # Common Variables #
 ####################
-location                = "North Europe"
+location                = "Germany West Central"
 postgres-resource-group = "postgresql-rg"
 
 #####################
