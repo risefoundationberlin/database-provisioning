@@ -31,3 +31,8 @@ variable "postgres-resource-group" {
   type        = string
   description = "resource group where postgres components would be created"
 }
+
+variable "public_ip_aks" {
+  type        = string
+  description = "public ip of AKS"
+}

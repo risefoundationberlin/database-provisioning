@@ -31,3 +31,4 @@ jobs:
           TF_VAR_aks-vnet-resource-group: ${{ secrets.AKS_VNET_RG }}
           TF_VAR_postgresql-admin-login: ${{ secrets.RF_EM_PROD_USER }}
           TF_VAR_postgresql-admin-password: ${{ secrets.RF_EM_PROD_PASS }}
+          TF_VAR_public_ip_aks: ${{ secrets.AKS_PUBLIC_IP }}
